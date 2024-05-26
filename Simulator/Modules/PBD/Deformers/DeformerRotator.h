@@ -7,7 +7,7 @@
 
 #include <cmath>
 #include <Eigen/StdVector>
-#include "Eigen/core"
+#include "Eigen/Core"
 
 namespace EBD {
 	struct DeformerRotator : public BaseDeformer {

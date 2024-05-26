@@ -2,17 +2,14 @@ cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
 message( "Adding GAIA." )
 
-set(CMAKE_CUDA_ARCHITECTURES 75;80;86)
-
 find_package(Eigen3 REQUIRED)
 find_package(MeshFrame2 REQUIRED PATHS ${CMAKE_CURRENT_LIST_DIR}/../3rdParty/MeshFrame2/MeshFrame/cmake)
-find_package(embree 3.0 REQUIRED)
-find_package(CuMatrix REQUIRED PATHS ${CMAKE_CURRENT_LIST_DIR}/../3rdParty/CuMatrix/cmake)
+find_package(embree 4.0 REQUIRED)
 find_package(TBB REQUIRED)
+
 set (GAIA_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 	
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/../3rdParty/cmake-git-version-tracking" ${CMAKE_CURRENT_BINARY_DIR}/cmake-git-version-tracking)
-
 
 option (BUILD_VBD
        "Build VBD modules." ON)
@@ -30,8 +27,6 @@ option (BUILD_Collision_Detector
        "Build Collision Detectors Modules." ON)
 	   
 set(GAIA_DEFINITIONS)
-
-
 
 set(THIRD_PARTY_INCLUDE_DIRS
         ${EIGEN3_INCLUDE_DIR}
@@ -159,8 +154,6 @@ SET (GAIA_SRCS
 	${GAIA_CLOTH_SRCS}
 )
 endif (BUILD_VBD_Cloth)
-
-
 
 set (GAIA_LIBRARY
 	${CU_MATRIX_LIBS}

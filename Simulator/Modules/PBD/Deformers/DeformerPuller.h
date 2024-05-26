@@ -7,7 +7,7 @@
 
 #include <cmath>
 #include <Eigen/StdVector>
-#include "Eigen/core"
+#include "Eigen/Core"
 
 struct DeformerRigidPuller : public BaseDeformer {
 	DeformerRigidPuller(CPoint inVelocity, SoftBodyManager* pSoftBodyManager, const std::vector<int> & inSelectedMeshes, const std::vector<std::vector<int>>& inSelectedVerts, double in_endTime=-1) :

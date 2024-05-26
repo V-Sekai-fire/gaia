@@ -1,12 +1,9 @@
 cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
-find_package(CUDAToolkit 11 REQUIRED)
-
-project(VBDDynamics LANGUAGES CXX CUDA)
+project(VBDDynamics LANGUAGES CXX)
 
 ## Use C++11
 set (CMAKE_CXX_STANDARD 11)
-set (CMAKE_CUDA_STANDARD 11)   
 
 set(BUILD_VBD ON)
 set(BUILD_PBD OFF)
@@ -28,7 +25,6 @@ add_executable(VBDDynamics
 	${SRC}
 	${GAIA_SRCS}
 )
-
 
 target_compile_options(VBDDynamics PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:
                        --extended-lambda
